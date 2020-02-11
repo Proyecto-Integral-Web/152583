@@ -73,4 +73,7 @@ export default {
 </script>
 //Style, ubicamos el css relacionado a nuestros views y componentes
 <style lang="scss">
+body {
+  background-color: black;
+}
 </style>
