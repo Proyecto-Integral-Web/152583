@@ -1,7 +1,15 @@
 <template>
   <div class="home">
-    <h1>Login</h1>
-    <loginForm></loginForm>
+    <h1>Bienvenido</h1>
+
+    <div class="col-lg-6">
+      <loginForm></loginForm>
+    </div>
+
+    <div class="col-md-6">
+      <img src="@/assets/fotolateral.jpg">
+    </div>
+
   </div>
 </template>
 
@@ -15,4 +23,8 @@ export default {
   }
 }
 </script>
-<style lang="scss"></style>
+<style lang="scss">
+body {
+  background-color: black;
+}
+</style>

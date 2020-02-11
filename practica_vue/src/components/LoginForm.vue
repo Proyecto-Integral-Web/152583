@@ -32,12 +32,7 @@
               class="btn btn-outline-primary btn-block"
             >Login whit Facebook</button><br>
             <label for="ejemplo_password_1">Clase de Proyecto Integral Web 2020</label>
-            <div class="col-md-6">
-              <img
-                src="@/assets/login.png"
-                class="rounded float right"
-              >
-            </div>
+
           </div>
         </div>
       </div>
@@ -77,4 +72,5 @@ export default {
 
 </script>
 //Style, ubicamos el css relacionado a nuestros views y componentes
-<style lang="scss"></style>
+<style lang="scss">
+</style>
