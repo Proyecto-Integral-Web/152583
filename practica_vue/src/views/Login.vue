@@ -1,13 +1,13 @@
 <template>
   <div class="home">
     <h1>Bienvenido</h1>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <loginForm></loginForm>
-
     </div>
     <div class="col-md-6">
       <img src="@/assets/fotolateral.jpg">
     </div>
+
   </div>
 </template>
 
