@@ -41,6 +41,7 @@
 </template>
 //Aqui ubicamos todo el javascript de nuestros componentes o views
 <script lang="js">
+import Auth from '@/config/auth.js'
 export default {
   name: 'LoginForm',
   data () {
@@ -51,10 +52,13 @@ export default {
       }
     }
   },
-  created () {
+created () {
     // console.log('Estoy en created ${this.user}')
   },
   mounted () {
+    Auth.signUp(this.user)
+    console.log('Estoy en mounted $'{this.user})
+    console.log('Estoy en ${this.$route.name}')
     // console.log('Estoy en mounted ${this.user}')
     // this.login()
   },
