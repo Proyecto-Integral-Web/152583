@@ -32,7 +32,6 @@
               class="btn btn-outline-primary btn-block"
             >Login whit Facebook</button><br>
             <label for="ejemplo_password_1">Clase de Proyecto Integral Web 2020</label>
-
           </div>
         </div>
       </div>
@@ -52,26 +51,17 @@ export default {
       }
     }
   },
-created () {
+  created () {
     // console.log('Estoy en created ${this.user}')
   },
   mounted () {
     Auth.signUp(this.user)
-    console.log('Estoy en mounted $'{this.user})
-    console.log('Estoy en ${this.$route.name}')
+    // console.log('Estoy en mounted $',{this.user}'')
+    // console.log('Estoy en ${this.$route.name}')
     // console.log('Estoy en mounted ${this.user}')
     // this.login()
-  },
-  methods: {
-    login () {
-      console.log('Soy el login')
-      console.log(this.user.email)
-      console.log(this.user.password)
-      setTimeout(() => {
-        this.$router.push({ name: 'about' })
-      }, 1000)
-    }
   }
+
 }
 
 </script>
