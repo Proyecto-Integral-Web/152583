@@ -17,7 +17,7 @@ body {
   height: 100%;
   .about {
     color: white;
-    font-family: Century Gothic;
+    font-family: Century Gothc;
   }
 }
 </style>

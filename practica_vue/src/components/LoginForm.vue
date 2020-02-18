@@ -30,7 +30,7 @@
         <button
           type="button"
           class="btn btn-outline-primary btn-block"
-        >Regístrate con Facebook</button><br>
+        >Regístrate</button><br>
 
       </div>
     </form>
