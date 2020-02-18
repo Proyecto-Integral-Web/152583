@@ -3,7 +3,7 @@
     <form role="form">
       <div class="login container">
 
-        <label for="ejemplo_email_1">E-mail Address</label>
+        <label for="ejemplo_email_1">Correo electrónico</label>
         <input
           type="email"
           class="form-control mb-2"
@@ -11,7 +11,7 @@
           placeholder="E-mail address"
           v-model="user.email"
         >
-        <label for="ejemplo_password_1">Password</label>
+        <label for="ejemplo_password_1">Contraseña</label>
         <input
           type="password"
           class="form-control mb-2"
@@ -19,20 +19,22 @@
           placeholder="Password"
           v-model="user.password"
           @keypress.enter='login'
-        >
-        <label for="ejemplo_password_1">Don't have an account? Greate Account</label><br>
+        ><br>
+
         <button
           type="button"
-          class="btn btn-danger btn-block"
+          class="btn btn-danger btn-block "
           @click="login"
-        >Login</button><br>
+        >Iniciar sesión</button><br>
+        <label for="ejemplo_password_1">¿No tienes una cuenta?</label><br>
         <button
           type="button"
           class="btn btn-outline-primary btn-block"
-        >Login whit Facebook</button><br>
-        <label for="ejemplo_password_1">Clase de Proyecto Integral Web 2020</label>
+        >Regístrate con Facebook</button><br>
+
       </div>
     </form>
+    <label for="ejemplo_password_1">Proyecto Integral Web 2020</label>
   </section>
 </template>
 //Aqui ubicamos todo el javascript de nuestros componentes o views
@@ -85,7 +87,28 @@ export default {
     }
   }
 }
-
 </script>
 //Style, ubicamos el css relacionado a nuestros views y componentes
 <style lang="scss">
+body {
+  font-family: Century Gothic;
+  background-color: rgb(0, 0, 0);
+
+  .btn-danger {
+    background-color: grey;
+    border-color: rgb(154, 199, 32);
+  }
+  .btn-danger:hover {
+    background-color: black;
+    border-color: black;
+  }
+  .btn-outline-primary {
+    background-color: blue;
+    color: white;
+  }
+  .btn-outline-primary:hover {
+    background-color: black;
+    border-color: black;
+  }
+}
+</style>
