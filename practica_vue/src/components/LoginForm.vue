@@ -66,15 +66,18 @@ export default {
   methods: {
     login () {
       // Esta variable es de uso local de nuestro método
-      /* let user = {
+      let user = {
         email: 'esto es local'
-      } */
+      }
       console.log('Soy un login')
-      // console.log('user local: ' + user.email)
+      console.log('user local: ' + user.email)
       console.log('user from data:' + this.user.email)
       console.log(this.user.password)
       Auth.signUp(this.user)
+      Auth.login(this.user)
       setTimeout(() => {
+        console.log(this.user.password)
+        Auth.signUp(this.user)
         // Despues de iniciar sesion nos envia a la página de about
         this.$router.push({ name: 'about' })// Rouer para navegar entre rutas router para mover
       }, 1000)

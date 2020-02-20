@@ -1,10 +1,18 @@
 import fireApp from './_firebase'
+import router from '@/router'
 
 export default {
-  login (data) {
-    console.log(data)
+  login (data){
+    fireApp.auth().signInWithEmailAndPassword(data.email, data.password).then((result)=>{
+      console.log(result)
+      router.push({name})
+    }).catch((err) =>{ console.log(err)
+})
+},
+  //console.log(data)
   },
-  signUp (data) {
+
+  signUp (data){
     if (data.nombre === '' || data.email === '' || data.password === '') {
       return console.log('Todos los campos son obligatorios.')
     }
