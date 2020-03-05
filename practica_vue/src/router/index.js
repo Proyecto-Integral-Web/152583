@@ -11,7 +11,10 @@ const routes = [
   {
     path: '/', // Asignamos path, tiene que se rúnico
     name: 'login', // Asingamos nombre único
-    component: Login // Declaramos componentes
+    component: Login, // Declaramos componentes
+    meta: {
+      auth: false//* se usa para controlar el acceso a usiarios o no
+    }
   },
   {
     path: '/home',
@@ -26,19 +29,16 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ '../views/About.vue'),
-    meta: { auth: true }
+    meta: {
+      auth: true //* se utuliza para hacer el acceso a usuarios o no }
+    }
   }
 ]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes,
-  beforeRouteEnter (to, from, next) {
-    if (to.meta.auth) {
-      console.log('Necesita permiso para entrar')
-    }
-  }
+  routes
 })
 
 export default router

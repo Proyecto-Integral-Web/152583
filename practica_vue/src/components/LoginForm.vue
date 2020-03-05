@@ -2,35 +2,41 @@
   <section>
     <form role="form">
       <div class="login container">
-
-        <label for="ejemplo_email_1">Correo electrónico</label>
-        <input
-          type="email"
-          class="form-control mb-2"
-          id="ejemplo_email_1"
-          placeholder="E-mail address"
-          v-model="user.email"
+        <alerts-component:
+          v-if="showMessage"
+          :message="Esto es un error"
+          :code=erroCode
         >
-        <label for="ejemplo_password_1">Contraseña</label>
-        <input
-          type="password"
-          class="form-control mb-2"
-          id="ejemplo_password_1"
-          placeholder="Password"
-          v-model="user.password"
-          @keypress.enter='login'
-        ><br>
+          </alerts-component>
 
-        <button
-          type="button"
-          class="btn btn-danger btn-block "
-          @click="login"
-        >Iniciar sesión</button><br>
-        <label for="ejemplo_password_1">¿No tienes una cuenta?</label><br>
-        <button
-          type="button"
-          class="btn btn-outline-primary btn-block"
-        >Regístrate</button><br>
+          <label for="ejemplo_email_1">Correo electrónico</label>
+          <input
+            type="email"
+            class="form-control mb-2"
+            id="ejemplo_email_1"
+            placeholder="E-mail address"
+            v-model="user.email"
+          >
+          <label for="ejemplo_password_1">Contraseña</label>
+          <input
+            type="password"
+            class="form-control mb-2"
+            id="ejemplo_password_1"
+            placeholder="Password"
+            v-model="user.password"
+            @keypress.enter='login'
+          ><br>
+
+          <button
+            type="button"
+            class="btn btn-danger btn-block "
+            @click="login"
+          >Registrarse</button><br>
+          <label for="ejemplo_password_1">¿No tienes una cuenta?</label><br>
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-block"
+          >Iniciar Sesión</button><br>
 
       </div>
     </form>
@@ -41,13 +47,22 @@
 <script lang="js">
 
 import Auth from '@/config/auth.js'
+
+import AlertsComponent from './helpers/Alerts'
+
 export default {
   name: 'LoginForm',
+  components:{
   data () {
     return {
-      user: {
-        email: '',
-        password: ''
+showError:false,
+errorMessage:'',
+errorCode:'',
+
+user: {
+email: 'noriloga@gmail.com',
+        password: '1234'
+      //  nombre:'norma'
       }
     }
   },
@@ -74,7 +89,13 @@ export default {
       console.log('user from data:' + this.user.email)
       console.log(this.user.password)
       Auth.signUp(this.user)
-      Auth.login(this.user)
+      Auth.login(this.user).catch(error=>{
+        console.log('Estoy en loginfform')
+        console.log('Esto es un error:' + error.code,error.message)
+  this.showError=true
+  this.errorMessage=error.message
+  this.errorCode = error.code
+})
       setTimeout(() => {
         console.log(this.user.password)
         Auth.signUp(this.user)
