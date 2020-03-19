@@ -30,7 +30,7 @@ body {
   padding: 100px;
   margin: 100px;
   background-color: rgb(0, 0, 0);
-  background-image: url(http://img.webme.com/pic/w/webcp/bge02.jpg);
+  // background-image: url(http://img.webme.com/pic/w/webcp/bge02.jpg);
 
   .card {
     padding: 30px;

@@ -3,9 +3,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 // Importamos la nueva vista
 import Login from '../views/Login.vue'
+import Signup from '../views/SignUp.vue'
 
 Vue.use(VueRouter)
-
 const routes = [
   // Agregamos ruta de login
   {
@@ -32,6 +32,11 @@ const routes = [
     meta: {
       auth: true //* se utuliza para hacer el acceso a usuarios o no }
     }
+  },
+  {
+    path: '/SignUp',
+    name: 'signup',
+    component: Signup
   }
 ]
 

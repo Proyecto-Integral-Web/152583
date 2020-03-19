@@ -1,6 +1,8 @@
 <template>
   <section>
     <form role="form">
+      <h3>Registrarse
+      </h3>
       <div class="login container">
         <alerts-component
           v-if="showError"
@@ -121,7 +123,7 @@ export default {
 <style lang="scss">
 body {
   font-family: Century Gothic;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(138, 0, 96);
 
   .btn-danger {
     background-color: grey;

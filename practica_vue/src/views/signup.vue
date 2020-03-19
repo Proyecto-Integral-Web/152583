@@ -1,10 +1,10 @@
 <template>
   <div class="home">
     <div class="card">
-      <h1>REGISTRARSE</h1><br>
+      <h1>SIGNUP</h1><br>
       <div class="row">
         <div class="col-md-6">
-          <loginForm></loginForm>
+          <signupform></signupform>
         </div>
         <div class="col-md-6">
           <img src="@/assets/playera.png">
@@ -16,13 +16,12 @@
 
 <script lang="js">
 
-import LoginForm from '@/components/LoginForm'
+import SignUpForm from '@/components/SignUpForm.vue'
 export default {
-  name: 'login',
-  components: {
-    LoginForm
-  }
+  name: 'signup',
+  components: SignUpForm
 }
+
 </script>
 
 <style lang="scss">
