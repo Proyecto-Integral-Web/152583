@@ -2,41 +2,48 @@
   <section>
     <form role="form">
       <div class="login container">
-        <alerts-component:
-          v-if="showMessage"
-          :message="Esto es un error"
-          :code=erroCode
+        <alerts-component
+          v-if="showError"
+          :message="errorMessage"
+          :code="errorCode"
         >
-          </alerts-component>
+        </alerts-component>
+        <label for="ejemplo_email_1">Correo electrónico</label>
+        <input
+          type="email"
+          class="form-control mb-2"
+          id="ejemplo_email_1"
+          placeholder="E-mail address"
+          v-model="user.email"
+          @keypress="showError=false"
+        >
+        <label for="ejemplo_password_1">Contraseña</label>
+        <input
+          type="password"
+          class="form-control mb-2"
+          id="ejemplo_password_1"
+          placeholder="Password"
+          v-model="user.password"
+          @keypress.enter='login'
+          @keypress="showError=false"
+        ><br>
+        {
+        {
+        user.password
+        }
+        }
+        {{1+1}}
 
-          <label for="ejemplo_email_1">Correo electrónico</label>
-          <input
-            type="email"
-            class="form-control mb-2"
-            id="ejemplo_email_1"
-            placeholder="E-mail address"
-            v-model="user.email"
-          >
-          <label for="ejemplo_password_1">Contraseña</label>
-          <input
-            type="password"
-            class="form-control mb-2"
-            id="ejemplo_password_1"
-            placeholder="Password"
-            v-model="user.password"
-            @keypress.enter='login'
-          ><br>
-
-          <button
-            type="button"
-            class="btn btn-danger btn-block "
-            @click="login"
-          >Registrarse</button><br>
-          <label for="ejemplo_password_1">¿No tienes una cuenta?</label><br>
-          <button
-            type="button"
-            class="btn btn-outline-primary btn-block"
-          >Iniciar Sesión</button><br>
+        <button
+          type="button"
+          class="btn btn-danger btn-block "
+          @click="login"
+        >Registrarse</button><br>
+        <label for="ejemplo_password_1">¿No tienes una cuenta?</label><br>
+        <button
+          type="button"
+          class="btn btn-outline-primary btn-block"
+        >Iniciar Sesión</button><br>
 
       </div>
     </form>
@@ -52,17 +59,18 @@ import AlertsComponent from './helpers/Alerts'
 
 export default {
   name: 'LoginForm',
-  components:{
+  components: {
+    AlertsComponent },
+
   data () {
     return {
-showError:false,
-errorMessage:'',
-errorCode:'',
-
-user: {
-email: 'noriloga@gmail.com',
+      showError: false,
+      errorMessage: '',
+      errorCode: '',
+      user: {
+        email: 'noriloga@gmail.com',
         password: '1234'
-      //  nombre:'norma'
+        //  nombre:'norma'
       }
     }
   },
@@ -81,34 +89,34 @@ email: 'noriloga@gmail.com',
   methods: {
     login () {
       // Esta variable es de uso local de nuestro método
-      let user = {
-        email: 'esto es local'
-      }
-      console.log('Soy un login')
-      console.log('user local: ' + user.email)
-      console.log('user from data:' + this.user.email)
-      console.log(this.user.password)
-      Auth.signUp(this.user)
-      Auth.login(this.user).catch(error=>{
+      //   let user = {
+      //   email: 'esto es local'
+    //  }
+      //   console.log('Soy un login')
+      // console.log('user local: ' + user.email)
+      // console.log('user from data:' + this.user.email)
+      // console.log(this.user.password)
+      //   Auth.signUp(this.user)
+      Auth.login(this.user).catch(error => {
         console.log('Estoy en loginfform')
-        console.log('Esto es un error:' + error.code,error.message)
-  this.showError=true
-  this.errorMessage=error.message
-  this.errorCode = error.code
-})
-      setTimeout(() => {
-        console.log(this.user.password)
-        Auth.signUp(this.user)
-        // Despues de iniciar sesion nos envia a la página de about
-        this.$router.push({ name: 'about' })// Rouer para navegar entre rutas router para mover
-      }, 1000)
-    },
-    signup () {
-      setTimeout(() => {
-        // Despues de iniciar sesion nos envia a la página de about
-        this.$router.push({ name: 'signup' })// Rouer para navegar entre rutas router para mover
-      }, 1000)
+        console.log('Esto es un error:' + error.code, error.message)
+        this.showError = true
+        this.errorMessage = error.message
+        this.errorCode = error.code
+      })
+      // setTimeout(() => {
+      // console.log(this.user.password)
+      Auth.signUp(this.user)
+      // Despues de iniciar sesion nos envia a la página de about
+      //  this.$router.push({ name: 'about' })// Rouer para navegar entre rutas router para mover
+      // }, 1000)
     }
+    //    signup () {
+  //    setTimeout(() => {
+    // Despues de iniciar sesion nos envia a la página de about
+    //    this.$router.push({ name: 'signup' })// Rouer para navegar entre rutas router para mover
+    // }, 1000)
+    // }
   }
 }
 </script>

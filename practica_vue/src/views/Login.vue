@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="card p-3">
-      <h1>netze</h1><br>
+      <h1>INICIO DE SESION</h1><br>
       <div class="row">
         <div class="col-md-6">
           <loginForm></loginForm>

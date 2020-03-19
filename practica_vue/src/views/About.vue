@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12">
         <h1>Bienvenido</h1><br>
-        <h2>Ha iniciado sesión correctamente</h2>
+        <h2>Se ha registrado correctamente</h2>
         <img src="@/assets/vaso.jpg">
       </div>
     </div>

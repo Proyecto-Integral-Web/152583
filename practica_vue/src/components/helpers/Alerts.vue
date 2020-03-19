@@ -1,7 +1,7 @@
 <template>
   <section v-if="error">
     <div
-      class="alert"
+      class="alert animated tada"
       :class="
       code=='auth/invalid-email'
       ?'alert-warning':'alert-danger'"
@@ -15,6 +15,11 @@
 export default {
   name: 'AlertsComponent',
   props: ['error', 'code', 'message'],
+  data () {
+    return {
+      tipo: 'alert-success'
+    }
+  },
 
   mounted () {
     switch (this.code) {
@@ -24,15 +29,20 @@ export default {
       case 'auth/invalid-email':
         this.tipo = 'alert-warning'
         break
+      case 'auth/wrong-password':
+        this.tipo = 'alert-warning'
+        break
       default:
         this.tipo = 'alert-primary'
         break
     }
-    //    code(value){
-  //    switch(this.code){}
-    //    }
   }
+
+  //    code(value){
+  //    switch(this.code){}
+  //    }
 }
+
 </script>
 <style lang="scss">
 </style>
